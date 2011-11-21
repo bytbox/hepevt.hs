@@ -48,7 +48,7 @@ Library
   Exposed-modules:     Data.HEPEVT
   
   -- Packages needed in order to build this package.
-  Build-depends:       haskell2010 >= 1.0
+  Build-depends:       haskell2010 >= 1.0, bytestring>=0.9
   
   -- Modules not exported by this package.
   -- Other-modules:       
