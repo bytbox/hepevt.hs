@@ -5,7 +5,10 @@ the ASCII HEPEVT file format.
 
 -}
 module Data.HEPEVT (
+  Event,
 
+  parseEventFile,
+  parseEvents,
 ) where
 
 type Event = ([Double], [[Double]])
