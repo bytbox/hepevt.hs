@@ -1,0 +1,8 @@
+*.swp
+*.hi
+*.o
+demo
+_build
+*.lhe
+dist
+*.dat
