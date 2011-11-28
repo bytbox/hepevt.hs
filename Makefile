@@ -4,4 +4,4 @@ demo: Main.hs Data/HEPEVT.hs
 	ghc -o $@ Main.hs
 
 clean:
-	rm -f demo *.o *.hi
+	rm -f demo *.o *.hi Data/*.o Data/*.hi
