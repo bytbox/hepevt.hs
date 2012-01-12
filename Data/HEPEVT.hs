@@ -17,30 +17,30 @@ type Event = ([Double], [[Double]])
 
 parseEventFile :: String -> IO [Event]
 parseEventFile fname = do
-  S.readFile fname >>= return . parseEvents fname
+  S.readFile fname >>= return . parseEvents
 
 data Line = Meta String | E [Double] | P [Double] | V [Double] | Blank
   deriving (Show, Eq)
 
-parseLine :: String -> Line
+parseLine :: S.ByteString -> Line
 parseLine line =
-  let ws = words line in
-    parseLine' ws line
+  let ws = S.words line in
+    parseLine' (map S.unpack ws) line
   where
     parseLine' ("E":xs) _ = E $ map parseDouble xs
     parseLine' ("P":xs) _ = P $ map parseDouble xs
     parseLine' ("V":xs) _ = V $ map parseDouble xs
-    parseLine' _ line = if length line > 1 then Meta line else Blank
+    parseLine' _ line = if S.length line > 1 then Meta (S.unpack line) else Blank
 
-getLines :: [String] -> [Line]
+getLines :: [S.ByteString] -> [Line]
 getLines = map parseLine
 
 type ParseState = [Event]
 
-parseEvents :: String -> S.ByteString -> [Event]
-parseEvents fname dat =
+parseEvents :: S.ByteString -> [Event]
+parseEvents dat =
   let ls = S.split '\n' dat in 
-    reverse $ foldl process [] $ getLines (map S.unpack ls)
+    reverse $ foldl process [] $ getLines ls
   where
     process events (E ds) = (ds, []):events
     process ((el, vl):events) (V ds) = (el, ds:vl):events

@@ -4,5 +4,5 @@ import Data.HEPEVT
 
 main = do
   events <- parseEventFile "events.dat"
-  putStrLn $ show events
+  putStrLn $ show $ length events
 
