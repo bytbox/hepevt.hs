@@ -60,7 +60,7 @@ mkParticle (barcode:pid:px:py:pz:energy:mass:stat:ptheta:pphi:_) =
     , pphi    = parseDouble pphi
     }
 
-type Event = ([Double], [[Double]])
+type Event = ([Double], [Particle])
 
 parseEventFile :: String -> IO [Event]
 parseEventFile fname = do
@@ -90,7 +90,7 @@ parseEvents dat =
     reverse $ foldl process [] $ getLines ls
   where
     process events (E ds) = (ds, []):events
-    process ((el, vl):events) (V ds) = (el, ds:vl):events
+    process ((el, pl):events) (P p) = (el, p:pl):events
     process events _ = events
 
 parseDouble :: String -> Double
