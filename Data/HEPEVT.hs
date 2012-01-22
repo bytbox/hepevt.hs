@@ -8,7 +8,7 @@ Compatibility with the extended format used by HepMC
 
 -}
 module Data.HEPEVT (
-  Event,
+  Event, Particle(..),
 
   parseEventFile,
   parseEvents,
