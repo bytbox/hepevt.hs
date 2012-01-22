@@ -1,8 +1,8 @@
 {-|
 
 This module provides a pure haskell implementation of a reader and writer for
-the ASCII HEPEVT file format, as described at
-http://cepa.fnal.gov/psm/simulation/mcgen/lund/pythia_manual/pythia6.3/pythia6301/node39.html.
+the ASCII HEPEVT file format, rougly as described at
+http://cepa.fnal.gov/psm/simulation/mcgen/lund/pythia_manual/pythia6.3/pythia6301/node39.html. Compatibility with HepMC (http://lcgapp.cern.ch/project/simu/HepMC/) is given priority.
 
 -}
 module Data.HEPEVT (
