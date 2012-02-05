@@ -1,5 +1,5 @@
 Name:                hepevt
-Version:             0.3.1
+Version:             0.3.2
 Synopsis:            HEPEVT parser and writer
 Description:         This package implements a parser and writer for the ASCII HEPEVT event log file format
 License:             MIT
