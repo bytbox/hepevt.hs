@@ -13,7 +13,7 @@ Cabal-version:       >=1.10
 Library
   Default-language:    Haskell2010
   Exposed-modules:     Data.HEPEVT
-  Build-depends:       haskell2010 >= 1.0, bytestring>=0.9
+  Build-depends:       haskell2010 >= 1.0, bytestring>=0.9, lha>=0.1
   -- Other-modules:       
 
 source-repository head
